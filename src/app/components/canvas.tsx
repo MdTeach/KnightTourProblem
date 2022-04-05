@@ -26,11 +26,11 @@ const Canvas = ({boardSize,initial_pos,trace}:CanvasProps) => {
           id="canvas"
           ref={canvasRef}
           width={width}
-          height={height}
+          height={width}
 
           style={{
+            marginTop:"10px",
             maxWidth:"80vw",
-            maxHeight:"95vh",
             // backgroundColor:"red",
             textAlign:"center",
           }}

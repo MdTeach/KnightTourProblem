@@ -25,16 +25,16 @@ function App() {
           width:'80%',
           margin:"auto",
           textAlign:"center",
-          backgroundColor:"red"
       }}>
-        <input placeholder='board size' type="number" defaultValue={5}  onChange={(e)=>setBoardSize(parseInt(e.target.value))}/>
-        <input placeholder='knight X position' type="number" defaultValue={0} onChange={
+        <h1 style={{color:'#FEF8E4'}}>Knight Tour - Backtracking</h1>
+        <input placeholder='board size' type="number" onChange={(e)=>setBoardSize(parseInt(e.target.value))}/>
+        <input placeholder='knight X position' type="number" onChange={
           (e)=>{
             setXPosition(parseInt(e.target.value))
             setTrace([[parseInt(e.target.value),yPosition]])
           }
         }/>
-        <input placeholder='knight Y position' type="number" defaultValue={0} onChange={
+        <input placeholder='knight Y position' type="number" onChange={
           (e)=>{
             setYPosition(parseInt(e.target.value))
             setTrace([[xPosition,parseInt(e.target.value)]])

@@ -1,4 +1,3 @@
-// https://github.com/ashiishme/react-sine-wave.git
 import { useCanvasContext } from 'app/hooks/useCanvas'
 import useResponsiveSize from 'app/hooks/useResponsiveSize'
 import {useState } from 'react';
@@ -46,14 +45,23 @@ function drawVisited(ctx:CanvasRenderingContext2D,boardSize:number,width:number,
   const boardTopx = (width - squareSize*boardSize)/2;
   const boardTopy = 10;
 
+  let counter = 1;
   for(let horsePosition of visited){
     ctx.fillStyle = "rgba(31, 238, 148, 0.4)";
+    const x = boardTopx + horsePosition[0]*squareSize;
+    const y = boardTopy + horsePosition[1]*squareSize;
+    
     ctx.fillRect(
-      boardTopx + horsePosition[0]*squareSize,
-      boardTopy + horsePosition[1]*squareSize,
+      x,y,
       squareSize, 
       squareSize
     );
+
+    ctx.font = '48px serif';
+    ctx.fillStyle = "rgba(0, 3, 1, 0.918)"; 
+    ctx.fillText(counter.toString(), x+squareSize/2.5, y+squareSize/1.5);
+
+    counter += 1
   }
 }
 
@@ -70,8 +78,7 @@ const Chess = ({boardSize,initial_pos,trace}:CanvasProps) => {
   }
 
   const visitedNodes:Array<[number,number]> = [trace[0]]
-  const isTracing = true
-  const speed = 30
+  const speed = 100
   let counter = 0
   let idx = 0
 
