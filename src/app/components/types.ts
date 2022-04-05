@@ -4,4 +4,5 @@ export interface CanvasProps {
       x:number,
       y:number
     }
+    trace:Array<[number, number]>
 }

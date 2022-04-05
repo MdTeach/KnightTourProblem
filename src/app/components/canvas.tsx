@@ -6,8 +6,9 @@ import {Chess} from "./chess";
 
 import { CanvasProps } from './types';
 
-const HorseImageURI = require('assets/horse.png');
-const Canvas = ({boardSize,initial_pos}:CanvasProps) => {  
+type traceType = Array<[number, number]>
+
+const Canvas = ({boardSize,initial_pos,trace}:CanvasProps) => {  
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const { width, height } = useResponsiveSize()
 
@@ -34,7 +35,7 @@ const Canvas = ({boardSize,initial_pos}:CanvasProps) => {
             textAlign:"center",
           }}
         ></canvas>
-        <Chess boardSize={boardSize} initial_pos={initial_pos}/>
+        <Chess boardSize={boardSize} initial_pos={initial_pos} trace={trace}/>
       </CanvasContext.Provider>
     </div>
   )
