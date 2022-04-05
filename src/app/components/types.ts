@@ -6,3 +6,6 @@ export interface CanvasProps {
     }
     trace:Array<[number, number]>
 }
+
+
+export type traceType = Array<[number, number]>

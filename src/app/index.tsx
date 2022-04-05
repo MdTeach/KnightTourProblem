@@ -1,7 +1,7 @@
 import Canvas from 'app/components/canvas'
 
 import {useState} from 'react';
-
+import {knightTour} from '../uitils/getKnightTourSoln'
 
 type traceType = Array<[number, number]>
 
@@ -13,17 +13,11 @@ function App() {
   const [trace, setTrace] = useState<traceType>([[0,0]]);
   
   const generateSolution = ()=>{
-    let _trace:traceType = [
-      [0,1],
-      [1,1],
-      [1,2],
-      [1,3],
-    ]
-
-    setTrace([..._trace])
+    const trace = knightTour.solveKnightTour(boardSize,xPosition,yPosition);
+    console.log(trace);
+    
+    setTrace([...trace])
   }
-
-  
 
   return (
     <div className="App">
@@ -34,13 +28,13 @@ function App() {
           backgroundColor:"red"
       }}>
         <input placeholder='board size' type="number" defaultValue={5}  onChange={(e)=>setBoardSize(parseInt(e.target.value))}/>
-        <input placeholder='knight X position'  defaultValue={0} onChange={
+        <input placeholder='knight X position' type="number" defaultValue={0} onChange={
           (e)=>{
             setXPosition(parseInt(e.target.value))
             setTrace([[parseInt(e.target.value),yPosition]])
           }
         }/>
-        <input placeholder='knight Y position'  defaultValue={0} onChange={
+        <input placeholder='knight Y position' type="number" defaultValue={0} onChange={
           (e)=>{
             setYPosition(parseInt(e.target.value))
             setTrace([[xPosition,parseInt(e.target.value)]])
