@@ -6,11 +6,7 @@ class KnightTour{
     
     solveKnightTour(size:number,px:number,py:number){
         const board = this.getNewBoard(size);
-
-        console.log("board is",board);
         let counter = 1;
-
-        // inital position is visited
         board[px][py] = 0;
 
         if(!this.tour(board,px,py,counter)){
@@ -21,9 +17,7 @@ class KnightTour{
             console.log("Found solution!!!");
             console.log(board);
         }
-
         const trace = this.getTrace(board);
-
         return trace
     }
 
@@ -43,7 +37,6 @@ class KnightTour{
                     return true;
                 }
 
-                // back tracking
                 board[nextX][nextY] = -1
             }
         }
@@ -68,8 +61,6 @@ class KnightTour{
 
 
     getTrace(board:number[][]){
-        // console.log("board was",board);
-        
         const trace:traceType = []
         const size = board.length
         const total = size*size;
@@ -89,8 +80,6 @@ class KnightTour{
             const path = getPosition(board,size,i)
             trace.push(path)
         }
-        
-        
         return trace
     }
 

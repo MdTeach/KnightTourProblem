@@ -13,8 +13,9 @@ function App() {
   const [trace, setTrace] = useState<traceType>([[0,0]]);
   
   const generateSolution = ()=>{
+    let t1 = Date.now();
     const trace = knightTour.solveKnightTour(boardSize,xPosition,yPosition);
-    console.log(trace);
+    console.log(`Time taken ${Date.now() - t1}`)
     
     setTrace([...trace])
   }

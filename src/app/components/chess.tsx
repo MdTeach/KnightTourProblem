@@ -78,7 +78,7 @@ const Chess = ({boardSize,initial_pos,trace}:CanvasProps) => {
   }
 
   const visitedNodes:Array<[number,number]> = [trace[0]]
-  const speed = 100
+  const speed = 10
   let counter = 0
   let idx = 0
 
