@@ -69,7 +69,7 @@ class KnightTour{
             for (let i = 0; i < size; i++) {
                 for (let j = 0; j < size; j++) {
                     if (board[i][j] === target){
-                        return [j, i]
+                        return [i,j]
                     }
                 }
             }
